@@ -1,5 +1,8 @@
+
 #include <stdarg.h>
 #include <stdio.h>
+#include "ft_printf.h"
+
 
 // type struct s_sc
 // {
@@ -16,24 +19,49 @@
 // 	sc.widht = 0;
 // }
 
- 
-void variadic_funct(int count, ...)
+t_print *ft_init_tab(t_print *tab)
 {
-    va_list args;
-    int i;
-    va_start(args, count);
-    printf ("variadic : argument count = %d\n", count);
-    for (i = 0; i < count; i++) {
-     printf("argument %d = %d, ", i + 1, va_arg(args, int));
-    }
-    printf ("\n");
-    va_end(args);
+	tab->widht = 0;
+	tab->prc = 0;
+	tab->zero = 0;
+	tab->pnt = 0;
+	tab->dash = 0;
+    tab->len = 0;
+    tab->sign = 0;
+    tab->is_zero = 0;
+    tab->perc = 0;
+    tab->sp = 0;
+    return (tab);	
 }
- 
-int main(void)
+
+int ft_printf(const char *format, ...)
 {
-    variadic_funct(0); 
-    variadic_funct(1,10);
-    variadic_funct(2,10,20);
-    variadic_funct(2,10,20,30);  
+	t_print	*tab;
+    int i;
+    int res;
+	tab = (t_print *)malloc(sizeof(t_print));
+	if (!tab)
+		return (-1);
+	ft_init_tab(tab);
+    va_start (tab->args, format);
+    i = -1;
+    res = 0;
+    while (format[++i])
+    {
+        if (format[i] == '%')
+            // i = ft_eva_format(tab, format, i + 1);
+            return (0);
+        else
+            res += write(1, &format[i], 1);
+        if (!format[++i])
+        {
+            res += write(1, "(null)", 6);
+            va_end(tab->args);
+            return(res);
+        }      
+    }
+    va_end(tab->args);
+    res += tab->len;
+    free(tab);
+    return(res);
 }
