@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsomrat <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/22 04:05:13 by lsomrat           #+#    #+#             */
+/*   Updated: 2022/08/22 04:05:59 by lsomrat          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned long  ptr)
+int	ft_putptr(unsigned long ptr)
 {
 	int	len;
-	
+
 	len = 0;
 	len += write(1, "0x", 2);
 	len += ft_printptr(ptr);
 	return (len);
 }
 
-int	ft_printptr(unsigned long  num)
+int	ft_printptr(unsigned long num)
 {
 	int	length;
 

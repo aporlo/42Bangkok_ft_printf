@@ -6,18 +6,18 @@
 #    By: lsomrat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/22 20:22:18 by lsomrat           #+#    #+#              #
-#    Updated: 2022/07/22 20:22:27 by lsomrat          ###   ########.fr        #
+#    Updated: 2022/08/22 04:18:04 by lsomrat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS	= -Wall -Wextra -Werror
 NAME	= libftprintf.a
 SRCS	= ft_printf.c \
-		ft_putnbr.c \
-		ft_putstr.c \
-		ft_putptr.c \
-		ft_putunsigned.c \
-		ft_puthex.c
+		  ft_putnbr.c \
+		  ft_putstr.c \
+		  ft_putptr.c \
+		  ft_putunsigned.c \
+		  ft_puthex.c
 
 OBJS	= ${SRCS:.c=.o}
 
