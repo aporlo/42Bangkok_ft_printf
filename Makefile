@@ -13,6 +13,8 @@
 FLAGS	= -Wall -Wextra -Werror
 NAME	= libftprintf.a
 SRCS	= ft_printf.c \
+		ft_putnbr.c \
+		ft_put_str.c
 
 # SRCS_B	= ft_lstnew.c \
 # 	  ft_lstadd_front.c \
